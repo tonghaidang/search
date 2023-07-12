@@ -29,6 +29,7 @@ class Ui_MainWindow(object):
         self.comboBox.addItem("")
         self.comboBox.addItem("")
         self.comboBox.addItem("")
+        self.comboBox.addItem("")
         self.pushButton = QtWidgets.QPushButton(parent=self.centralwidget)
         self.pushButton.setGeometry(QtCore.QRect(20, 60, 131, 31))
         font = QtGui.QFont()
@@ -64,11 +65,12 @@ class Ui_MainWindow(object):
         self.comboBox.setItemText(1, _translate("MainWindow", " Fubáo"))
         self.comboBox.setItemText(2, _translate("MainWindow", " Febáo"))
         self.comboBox.setItemText(3, _translate("MainWindow", "••Sun••"))
-        self.comboBox.setItemText(4, _translate("MainWindow", "FSR KhôMực"))
+        self.comboBox.setItemText(4, _translate("MainWindow", "¬Sâu"))
         self.comboBox.setItemText(5, _translate("MainWindow", "JeiiCy"))
         self.comboBox.setItemText(6, _translate("MainWindow", "GiaY"))
         self.comboBox.setItemText(7, _translate("MainWindow", "GiaThuann"))
         self.comboBox.setItemText(8, _translate("MainWindow", "M A R S"))
+        self.comboBox.setItemText(8, _translate("MainWindow", "Tiểu Sen"))
         self.pushButton.setText(_translate("MainWindow", "Search"))
         self.radioButton.setText(_translate("MainWindow", "Phòng chờ"))
         self.radioButton_2.setText(_translate("MainWindow", "Tán gẫu"))
@@ -84,7 +86,7 @@ class Ui_MainWindow(object):
             MainWindow.move(1473, 141)
             action_dict = {
                 "ALL": {
-                    True: [self.fubao_pc, self.febao_pc, self.sun_pc,self.fsr_pc, self.jeiicy_pc, self.giay_pc, self.giathuan_pc],
+                    True: [self.fubao_pc, self.febao_pc, self.sun_pc, self.sau_pc, self.jeiicy_pc, self.giay_pc, self.giathuan_pc],
                     False: lambda: self.errorLabel.setText("Chỉ hoạt động với Phòng chờ")
                 },
                 " Fubáo": {
@@ -99,9 +101,9 @@ class Ui_MainWindow(object):
                     True: self.sun_pc,
                     False: self.sun_tg
                 },
-                "FSR KhôMực": {
-                    True: self.fsr_pc,
-                    False: self.fsr_tg
+                "¬Sâu": {
+                    True: self.sau_pc,
+                    False: self.sau_tg
                 },
                 "JeiiCy": {
                     True: self.jeiicy_pc,
@@ -118,6 +120,10 @@ class Ui_MainWindow(object):
                 "M A R S": {
                     True: lambda: self.errorLabel.setText("Chỉ hoạt động với Tán gẫu"),
                     False: self.mars
+                },
+                "Tiểu Sen": {
+                    True: lambda: self.errorLabel.setText("Chỉ hoạt động với Tán gẫu"),
+                    False: self.tieusen
                 }
             }
             
@@ -260,32 +266,30 @@ class Ui_MainWindow(object):
         time.sleep(2)
         keyboard.write('kechatao113')
 
-    def fsr_pc(self):
+    def sau_pc(self):
         time.sleep(2)
         keyboard.press('/')
         keyboard.press('a')
         keyboard.press('i')
         keyboard.press_and_release("space")
-        keyboard.write('FSR')
-        keyboard.write("\u00A0")
-        keyboard.write('Khô')
-        keyboard.write('M')
+        keyboard.write("\u00AC")
+        keyboard.write('S')
+        keyboard.press('a')
+        keyboard.press('a')
         keyboard.press('u')
-        keyboard.press('w')
-        keyboard.press('c')
-        keyboard.press('j')
         keyboard.press('enter')
 
-    def fsr_tg(self):
+    def sau_tg(self):
         time.sleep(2)
-        keyboard.write('FSR')
-        keyboard.write("\u00A0")
-        keyboard.write('Khô')
-        keyboard.write('M')
+        keyboard.write("\u00AC")
+        keyboard.write('S')
+        keyboard.press('a')
+        keyboard.press('a')
         keyboard.press('u')
-        keyboard.press('w')
-        keyboard.press('c')
-        keyboard.press('j')
+
+    def tieusen(self):
+        time.sleep(2)
+        keyboard.write('chinhdqhpp123')
 
     
 if __name__ == "__main__":
