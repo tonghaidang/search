@@ -70,7 +70,7 @@ class Ui_MainWindow(object):
         self.comboBox.setItemText(6, _translate("MainWindow", "GiaY"))
         self.comboBox.setItemText(7, _translate("MainWindow", "GiaThuann"))
         self.comboBox.setItemText(8, _translate("MainWindow", "M A R S"))
-        self.comboBox.setItemText(8, _translate("MainWindow", "Tiểu Sen"))
+        self.comboBox.setItemText(9, _translate("MainWindow", "Tiểu Sen"))
         self.pushButton.setText(_translate("MainWindow", "Search"))
         self.radioButton.setText(_translate("MainWindow", "Phòng chờ"))
         self.radioButton_2.setText(_translate("MainWindow", "Tán gẫu"))
