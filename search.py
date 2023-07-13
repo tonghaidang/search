@@ -86,7 +86,7 @@ class Ui_MainWindow(object):
             MainWindow.move(1473, 141)
             action_dict = {
                 "ALL": {
-                    True: [self.fubao_pc, self.febao_pc, self.sun_pc, self.sau_pc, self.jeiicy_pc, self.giay_pc, self.giathuan_pc],
+                    True: [self.fubao_pc, self.febao_pc, self.sun_pc, self.sau_pc, self.meow_pc, self.jeiicy_pc, self.giay_pc, self.giathuan_pc],
                     False: lambda: self.errorLabel.setText("Chỉ hoạt động với Phòng chờ")
                 },
                 " Fubáo": {
