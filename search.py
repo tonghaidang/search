@@ -66,11 +66,11 @@ class Ui_MainWindow(object):
         self.comboBox.setItemText(2, _translate("MainWindow", " Febáo"))
         self.comboBox.setItemText(3, _translate("MainWindow", "••Sun••"))
         self.comboBox.setItemText(4, _translate("MainWindow", "¬Sâu"))
-        self.comboBox.setItemText(5, _translate("MainWindow", "JeiiCy"))
-        self.comboBox.setItemText(6, _translate("MainWindow", "GiaY"))
-        self.comboBox.setItemText(7, _translate("MainWindow", "GiaThuann"))
-        self.comboBox.setItemText(8, _translate("MainWindow", "M A R S"))
-        self.comboBox.setItemText(9, _translate("MainWindow", "Tiểu Sen"))
+        self.comboBox.setItemText(5, _translate("MainWindow", "Meow"))
+        self.comboBox.setItemText(6, _translate("MainWindow", "JeiiCy"))
+        self.comboBox.setItemText(7, _translate("MainWindow", "GiaY"))
+        self.comboBox.setItemText(8, _translate("MainWindow", "GiaThuann"))
+        self.comboBox.setItemText(9, _translate("MainWindow", "M A R S"))
         self.pushButton.setText(_translate("MainWindow", "Search"))
         self.radioButton.setText(_translate("MainWindow", "Phòng chờ"))
         self.radioButton_2.setText(_translate("MainWindow", "Tán gẫu"))
@@ -105,6 +105,10 @@ class Ui_MainWindow(object):
                     True: self.sau_pc,
                     False: self.sau_tg
                 },
+                "Meow": {
+                    True: self.meow_pc,
+                    False: self.meow_tg
+                },
                 "JeiiCy": {
                     True: self.jeiicy_pc,
                     False: self.jeiicy_tg
@@ -120,10 +124,6 @@ class Ui_MainWindow(object):
                 "M A R S": {
                     True: lambda: self.errorLabel.setText("Chỉ hoạt động với Tán gẫu"),
                     False: self.mars
-                },
-                "Tiểu Sen": {
-                    True: lambda: self.errorLabel.setText("Chỉ hoạt động với Tán gẫu"),
-                    False: self.tieusen
                 }
             }
             
@@ -287,9 +287,22 @@ class Ui_MainWindow(object):
         keyboard.press('a')
         keyboard.press('u')
 
-    def tieusen(self):
+    def meow_pc(self):
         time.sleep(2)
-        keyboard.write('chinhdqhpp123')
+        keyboard.press('/')
+        keyboard.press('a')
+        keyboard.press('i')
+        keyboard.press_and_release("space")
+        keyboard.write('Wilder')
+        keyboard.write('\u00A0')
+        keyboard.write('Meow')
+        keyboard.press('enter')
+
+    def meow_tg(self):
+        time.sleep(2)
+        keyboard.write('Wilder')
+        keyboard.write('\u00A0')
+        keyboard.write('Meow')
 
     
 if __name__ == "__main__":
