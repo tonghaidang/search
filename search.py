@@ -29,7 +29,6 @@ class Ui_MainWindow(object):
         self.comboBox.addItem("")
         self.comboBox.addItem("")
         self.comboBox.addItem("")
-        self.comboBox.addItem("")
         self.pushButton = QtWidgets.QPushButton(parent=self.centralwidget)
         self.pushButton.setGeometry(QtCore.QRect(20, 60, 131, 31))
         font = QtGui.QFont()
@@ -57,23 +56,41 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
         self.pushButton.clicked.connect(self.search)
+        self.comboBox.currentIndexChanged.connect(self.handleComboBoxChange)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "VLD - search"))
         self.comboBox.setItemText(0, _translate("MainWindow", "ALL"))
-        self.comboBox.setItemText(1, _translate("MainWindow", " Fubáo"))
-        self.comboBox.setItemText(2, _translate("MainWindow", " Febáo"))
-        self.comboBox.setItemText(3, _translate("MainWindow", "••Sun••"))
-        self.comboBox.setItemText(4, _translate("MainWindow", "¬Sâu"))
-        self.comboBox.setItemText(5, _translate("MainWindow", "Meow"))
-        self.comboBox.setItemText(6, _translate("MainWindow", "JeiiCy"))
-        self.comboBox.setItemText(7, _translate("MainWindow", "GiaY"))
-        self.comboBox.setItemText(8, _translate("MainWindow", "GiaThuann"))
-        self.comboBox.setItemText(9, _translate("MainWindow", "M A R S"))
+        self.comboBox.setItemText(1, _translate("MainWindow", " Aibáo "))
+        self.comboBox.setItemText(2, _translate("MainWindow", " Lebáo "))
+        self.comboBox.setItemText(3, _translate("MainWindow", " Febáo "))
+        self.comboBox.setItemText(4, _translate("MainWindow", "••Sun••"))
+        self.comboBox.setItemText(5, _translate("MainWindow", "JeiiCy"))
+        self.comboBox.setItemText(6, _translate("MainWindow", "GiaY"))
+        self.comboBox.setItemText(7, _translate("MainWindow", "GiaThuann"))
+        self.comboBox.setItemText(8, _translate("MainWindow", "M A R S"))
         self.pushButton.setText(_translate("MainWindow", "Search"))
         self.radioButton.setText(_translate("MainWindow", "Phòng chờ"))
+        self.radioButton.setChecked(True)
         self.radioButton_2.setText(_translate("MainWindow", "Tán gẫu"))
+        self.radioButton_2.setDisabled(True)
+
+    def handleComboBoxChange(self, index):
+        selected_item = self.comboBox.itemText(index)
+
+        if selected_item == "ALL":
+            self.radioButton.setChecked(True)
+            self.radioButton.setDisabled(False)
+            self.radioButton_2.setDisabled(True)
+        elif selected_item == "M A R S":
+            self.radioButton.setDisabled(True)
+            self.radioButton_2.setChecked(True)
+            self.radioButton_2.setDisabled(False)
+        else:
+            self.radioButton.setChecked(True)
+            self.radioButton.setDisabled(False)
+            self.radioButton_2.setDisabled(False)
 
     def search(self):
         self.errorLabel.setText("")
@@ -86,28 +103,23 @@ class Ui_MainWindow(object):
             MainWindow.move(1473, 141)
             action_dict = {
                 "ALL": {
-                    True: [self.fubao_pc, self.febao_pc, self.sun_pc, self.sau_pc, self.meow_pc, self.jeiicy_pc, self.giay_pc, self.giathuan_pc],
-                    False: lambda: self.errorLabel.setText("Chỉ hoạt động với Phòng chờ")
+                    True: [self.aibao_pc, self.lebao_pc, self.febao_pc, self.sun_pc, self.jeiicy_pc, self.giay_pc, self.giathuan_pc],
                 },
-                " Fubáo": {
-                    True: self.fubao_pc,
-                    False: self.fubao_tg
+                " Aibáo ": {
+                    True: self.aibao_pc,
+                    False: self.aibao_tg
                 },
-                " Febáo": {
+                " Lebáo ": {
+                    True: self.lebao_pc,
+                    False: self.lebao_tg
+                },
+                " Febáo ": {
                     True: self.febao_pc,
                     False: self.febao_tg
                 },
                 "••Sun••": {
                     True: self.sun_pc,
                     False: self.sun_tg
-                },
-                "¬Sâu": {
-                    True: self.sau_pc,
-                    False: self.sau_tg
-                },
-                "Meow": {
-                    True: self.meow_pc,
-                    False: self.meow_tg
                 },
                 "JeiiCy": {
                     True: self.jeiicy_pc,
@@ -122,7 +134,6 @@ class Ui_MainWindow(object):
                     False: self.giathuan_tg
                 },
                 "M A R S": {
-                    True: lambda: self.errorLabel.setText("Chỉ hoạt động với Tán gẫu"),
                     False: self.mars
                 }
             }
@@ -144,15 +155,15 @@ class Ui_MainWindow(object):
                     self.errorLabel.setText("Chọn Tán gẫu hoặc Phòng chờ")
         else:
             self.errorLabel.setText("Không tìm thấy Audition")
-    def fubao_pc(self):
+    def aibao_pc(self):
         time.sleep(2)
         keyboard.press('/')
         keyboard.press('a')
         keyboard.press('i')
         keyboard.press_and_release("space")
         keyboard.write("\u00A0")
-        pyautogui.press('F')
-        pyautogui.press('u')
+        pyautogui.press('A')
+        pyautogui.press('i')
         pyautogui.press('b')
         pyautogui.press('a')
         pyautogui.press('s')
@@ -160,11 +171,38 @@ class Ui_MainWindow(object):
         keyboard.write("\u00A0")
         pyautogui.press('enter')
     
-    def fubao_tg(self):
+    def aibao_tg(self):
         time.sleep(2)
         keyboard.write("\u00A0")
-        pyautogui.press('F')
-        pyautogui.press('u')
+        pyautogui.press('A')
+        pyautogui.press('i')
+        pyautogui.press('b')
+        pyautogui.press('a')
+        pyautogui.press('s')
+        pyautogui.press('o')
+        keyboard.write("\u00A0")
+
+    def lebao_pc(self):
+        time.sleep(2)
+        keyboard.press('/')
+        keyboard.press('a')
+        keyboard.press('i')
+        keyboard.press_and_release("space")
+        keyboard.write("\u00A0")
+        pyautogui.press('L')
+        pyautogui.press('e')
+        pyautogui.press('b')
+        pyautogui.press('a')
+        pyautogui.press('s')
+        pyautogui.press('o')
+        keyboard.write("\u00A0")
+        pyautogui.press('enter')
+    
+    def lebao_tg(self):
+        time.sleep(2)
+        keyboard.write("\u00A0")
+        pyautogui.press('L')
+        pyautogui.press('e')
         pyautogui.press('b')
         pyautogui.press('a')
         pyautogui.press('s')
@@ -265,44 +303,6 @@ class Ui_MainWindow(object):
     def mars(self):
         time.sleep(2)
         keyboard.write('kechatao113')
-
-    def sau_pc(self):
-        time.sleep(2)
-        keyboard.press('/')
-        keyboard.press('a')
-        keyboard.press('i')
-        keyboard.press_and_release("space")
-        keyboard.write("\u00AC")
-        keyboard.write('S')
-        keyboard.press('a')
-        keyboard.press('a')
-        keyboard.press('u')
-        keyboard.press('enter')
-
-    def sau_tg(self):
-        time.sleep(2)
-        keyboard.write("\u00AC")
-        keyboard.write('S')
-        keyboard.press('a')
-        keyboard.press('a')
-        keyboard.press('u')
-
-    def meow_pc(self):
-        time.sleep(2)
-        keyboard.press('/')
-        keyboard.press('a')
-        keyboard.press('i')
-        keyboard.press_and_release("space")
-        keyboard.write('Wilder')
-        keyboard.write('\u00A0')
-        keyboard.write('Meow')
-        keyboard.press('enter')
-
-    def meow_tg(self):
-        time.sleep(2)
-        keyboard.write('Wilder')
-        keyboard.write('\u00A0')
-        keyboard.write('Meow')
 
     
 if __name__ == "__main__":
