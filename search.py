@@ -29,6 +29,8 @@ class Ui_MainWindow(object):
         self.comboBox.addItem("")
         self.comboBox.addItem("")
         self.comboBox.addItem("")
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
         self.pushButton = QtWidgets.QPushButton(parent=self.centralwidget)
         self.pushButton.setGeometry(QtCore.QRect(20, 60, 131, 31))
         font = QtGui.QFont()
@@ -70,6 +72,8 @@ class Ui_MainWindow(object):
         self.comboBox.setItemText(6, _translate("MainWindow", "GiaY"))
         self.comboBox.setItemText(7, _translate("MainWindow", "GiaThuann"))
         self.comboBox.setItemText(8, _translate("MainWindow", "M A R S"))
+        self.comboBox.setItemText(9, _translate("MainWindow", "¬Sâu"))
+        self.comboBox.setItemText(10, _translate("MainWindow", " Lá "))
         self.pushButton.setText(_translate("MainWindow", "Search"))
         self.radioButton.setText(_translate("MainWindow", "Phòng chờ"))
         self.radioButton.setChecked(True)
@@ -103,7 +107,7 @@ class Ui_MainWindow(object):
             MainWindow.move(1473, 141)
             action_dict = {
                 "ALL": {
-                    True: [self.aibao_pc, self.lebao_pc, self.febao_pc, self.sun_pc, self.jeiicy_pc, self.giay_pc, self.giathuan_pc],
+                    True: [self.aibao_pc, self.lebao_pc, self.febao_pc, self.sun_pc, self.jeiicy_pc, self.giay_pc, self.giathuan_pc, self.sau_pc, self.la_pc],
                 },
                 " Aibáo ": {
                     True: self.aibao_pc,
@@ -135,6 +139,14 @@ class Ui_MainWindow(object):
                 },
                 "M A R S": {
                     False: self.mars
+                },
+                "¬Sâu": {
+                    True: self.sau_pc,
+                    False: self.sau_tg
+                },
+                " Lá ": {
+                    True: self.la_pc,
+                    False: self.la_tg
                 }
             }
             
@@ -156,7 +168,7 @@ class Ui_MainWindow(object):
         else:
             self.errorLabel.setText("Không tìm thấy Audition")
     def aibao_pc(self):
-        time.sleep(2)
+        time.sleep(1)
         keyboard.press('/')
         keyboard.press('a')
         keyboard.press('i')
@@ -172,7 +184,7 @@ class Ui_MainWindow(object):
         pyautogui.press('enter')
     
     def aibao_tg(self):
-        time.sleep(2)
+        time.sleep(1)
         keyboard.write("\u00A0")
         pyautogui.press('A')
         pyautogui.press('i')
@@ -183,7 +195,7 @@ class Ui_MainWindow(object):
         keyboard.write("\u00A0")
 
     def lebao_pc(self):
-        time.sleep(2)
+        time.sleep(1)
         keyboard.press('/')
         keyboard.press('a')
         keyboard.press('i')
@@ -199,7 +211,7 @@ class Ui_MainWindow(object):
         pyautogui.press('enter')
     
     def lebao_tg(self):
-        time.sleep(2)
+        time.sleep(1)
         keyboard.write("\u00A0")
         pyautogui.press('L')
         pyautogui.press('e')
@@ -210,7 +222,7 @@ class Ui_MainWindow(object):
         keyboard.write("\u00A0")
 
     def febao_pc(self):
-        time.sleep(2)
+        time.sleep(1)
         keyboard.press('/')
         keyboard.press('a')
         keyboard.press('i')
@@ -226,7 +238,7 @@ class Ui_MainWindow(object):
         pyautogui.press('enter')
 
     def febao_tg(self):
-        time.sleep(2)
+        time.sleep(1)
         keyboard.write("\u00A0")
         pyautogui.press('F')
         pyautogui.press('e')
@@ -237,7 +249,7 @@ class Ui_MainWindow(object):
         keyboard.write("\u00A0")
 
     def sun_pc(self):
-        time.sleep(2)
+        time.sleep(1)
         keyboard.press('/')
         keyboard.press('a')
         keyboard.press('i')
@@ -252,7 +264,7 @@ class Ui_MainWindow(object):
         pyautogui.press('enter')
 
     def sun_tg(self):
-        time.sleep(2)
+        time.sleep(1)
         keyboard.write("\u2022")
         keyboard.write("\u2022")
         pyautogui.press('S')
@@ -262,7 +274,7 @@ class Ui_MainWindow(object):
         keyboard.write("\u2022")
 
     def jeiicy_pc(self):
-        time.sleep(2)
+        time.sleep(1)
         keyboard.press('/')
         keyboard.press('a')
         keyboard.press('i')
@@ -271,11 +283,11 @@ class Ui_MainWindow(object):
         pyautogui.press('enter')
 
     def jeiicy_tg(self):
-        time.sleep(2)
+        time.sleep(1)
         keyboard.write('JeiiCy')
 
     def giay_pc(self):
-        time.sleep(2)
+        time.sleep(1)
         keyboard.press('/')
         keyboard.press('a')
         keyboard.press('i')
@@ -284,11 +296,11 @@ class Ui_MainWindow(object):
         pyautogui.press('enter')
 
     def giay_tg(self):
-        time.sleep(2)
+        time.sleep(1)
         keyboard.write('GiaY')
 
     def giathuan_pc(self):
-        time.sleep(2)
+        time.sleep(1)
         keyboard.press('/')
         keyboard.press('a')
         keyboard.press('i')
@@ -297,12 +309,54 @@ class Ui_MainWindow(object):
         pyautogui.press('enter')
 
     def giathuan_tg(self):
-        time.sleep(2)
+        time.sleep(1)
         keyboard.write('GiaThuann')
 
     def mars(self):
-        time.sleep(2)
+        time.sleep(1)
         keyboard.write('kechatao113')
+
+    def sau_pc(self):
+        time.sleep(1)
+        keyboard.press('/')
+        keyboard.press('a')
+        keyboard.press('i')
+        keyboard.press_and_release("space")
+        keyboard.write("\u00AC")
+        keyboard.write('S')
+        keyboard.press('a')
+        keyboard.press('a')
+        keyboard.press('u')
+        keyboard.press('enter')
+
+    def sau_tg(self):
+        time.sleep(1)
+        keyboard.write("\u00AC")
+        keyboard.write('S')
+        keyboard.press('a')
+        keyboard.press('a')
+        keyboard.press('u')
+
+    def la_pc(self):
+        time.sleep(1)
+        keyboard.press('/')
+        keyboard.press('a')
+        keyboard.press('i')
+        keyboard.press_and_release("space")
+        keyboard.write("\u00A0")
+        pyautogui.press('L')
+        pyautogui.press('a')
+        pyautogui.press('s')
+        keyboard.write("\u00A0")
+        pyautogui.press('enter')
+
+    def la_tg(self):
+        time.sleep(1)
+        keyboard.write("\u00A0")
+        pyautogui.press('L')
+        pyautogui.press('a')
+        pyautogui.press('s')
+        keyboard.write("\u00A0")
 
     
 if __name__ == "__main__":
